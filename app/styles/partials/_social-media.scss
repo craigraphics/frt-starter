@@ -1,0 +1,28 @@
+.social-media {
+  padding: 70px 0;
+
+  .social-container {
+      height: 400px;
+      overflow-y: auto;
+  }
+
+  .social-icons-ftr {
+    .smi {
+      width: 40px;
+      height: 40px;
+
+      i, em {
+        color: $white;
+        font-size: 22px;
+        line-height: 26px;
+      }
+
+      &.smi-youtube, &.smi-googleplus {
+        i, em {
+          font-size: 25px;
+          line-height: 32px;
+        }
+      }
+    }
+  }
+}
