@@ -28,15 +28,26 @@
   color: #FFF;
 }
 
-@media only screen and (min-width: $screen-md) {
-
-}
-
 .post {
   margin-top: 70px;
   margin-bottom: 70px;
   padding-left: 20px;
   padding-right: 20px;
+
+  h3 {
+    font-size: $font-size-title - 4px;
+    line-height: 1.2;
+    @media only screen and (min-width:  $screen-md) {
+      font-size: $font-size-title;
+    }
+  }
+
+  img {
+    margin: 20px 0;
+    @media only screen and (min-width:  $screen-lg) {
+      margin: 0;
+    }
+  }
 
   @media only screen and (min-width: 768px) {
     padding-left: 0;
