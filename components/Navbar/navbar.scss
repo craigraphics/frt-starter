@@ -1,0 +1,76 @@
+input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus {
+    height: 35px;
+    border: 1px #CCC solid;
+    border-right: none;
+    border-color: #CCC;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.container input.gsc-input, .container .gsc-input-box, .container .gsc-input-box-hover, .container .gsc-input-box-focus {
+    border: 1px #CCC solid;
+    font-size: 18px;
+    font-weight: normal;
+}
+
+.container input.gsc-search-button, .container input.gsc-search-button:hover, .container input.gsc-search-button:focus {
+    background-color: #ac0916;
+    height: 36px;
+    min-width: 40px;
+    padding: 10px 12px;
+    margin-left: 0px;
+    margin-top: 6px;
+
+    background-repeat: repeat-x;
+    border-color: #8c0d04;
+    border-style: solid;
+    border-left: none;
+    -moz-border-radius: 0px;
+    -webkit-border-radius: 0px;
+}
+
+.gsc-search-box-tools .gsc-search-box .gsc-input {
+    padding-right: 0px;
+}
+
+.gsc-search-box .gsc-input > input:hover, .gsc-input-box-hover {
+    border: 1px solid #CCC;
+    border-top-color: #CCC;
+    -moz-box-shadow: inset 0 0px 0px rgba(0,0,0,.0);
+    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,0);
+    box-shadow: inset 0 0px 0px rgba(0,0,0,0);
+    outline: none;
+}
+
+.gsc-search-box .gsc-input > input:focus, .gsc-input-box-focus {
+    border: 1px solid #CCC;
+    -moz-box-shadow: inset 0 0px 0px rgba(0,0,0,.0);
+    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,0);
+    box-shadow: inset 0 0px 0px rgba(0,0,0,0);
+    outline: none;
+}
+
+.cse input.gsc-search-button:focus,
+input.gsc-search-button:focus {
+    box-shadow: inset 0 0px 0px rgba(0,0,0,0);
+    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,0);
+    box-shadow: inset 0 0px 0px rgba(0,0,0,0);
+}
+
+form.gsc-search-box {
+    font-size: 18px;
+    font-weight: normal;
+}
+
+#search {
+        margin: 20px auto 20px;
+        height: 35px;
+    }
+
+@media only screen and (max-width: 768px) {
+    #search {
+        margin: 24px 15px 20px;
+        height: 35px;
+    }
+}
+    .bc-video-browser .bc-video-grid-items .bc-video-grid-item .bc-video-thumbnail img { max-height:160px}
