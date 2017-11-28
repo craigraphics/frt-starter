@@ -1,79 +1,68 @@
 <template>
-  <div class="VueToNuxtLogo">
-    <div class="Triangle Triangle--two"></div>
-    <div class="Triangle Triangle--one"></div>
-    <div class="Triangle Triangle--three"></div>
-    <div class="Triangle Triangle--four"></div>
-  </div>
+  <div class="container header-main">  
+    <div class="row">
+      <div class="col-sm-3">
+        <a class="navbar-brand" href="#">
+          <img src="~/assets/images/frontier-logo.png" alt="Frontier">
+        </a>
+      </div>    
+      <div class="col-sm-5">
+        <ul class="nav nav-justified nav-shop">
+          <li><a href="#">Shop</a></li>
+          <li><a href="#">My Account</a></li>
+          <li><a href="#">Support</a></li>
+        </ul>
+      </div>    
+      <div class="col-sm-4">
+        <div class="input-group" >
+          <input type="text" class="form-control" placeholder="Search Frontier...">
+          <span class="input-group-addon" aria-hidden="true">
+            <i class="fa fa-search" aria-hidden="true"></i>
+          </span>        
+        </div>
+      </div>
+    </div>  
+    
+  </div>  
 </template>
 
-<style>
-.VueToNuxtLogo {
-  display: inline-block;
-  animation: turn 2s linear forwards 1s;
-  transform: rotateX(180deg);
-  position: relative;
-  overflow: hidden;
-  height: 180px;
-  width: 245px;
-}
+<style lang="scss" scoped>
 
-.Triangle {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 0;
-  height: 0;
+.header-main {
+    border-bottom: 1px solid #CECECE;
+    padding-bottom: 15px;
 }
-
-.Triangle--one {
-  border-left: 105px solid transparent;
-  border-right: 105px solid transparent;
-  border-bottom: 180px solid #41B883;
-}
-
-.Triangle--two {
-  top: 30px;
-  left: 35px;
-  animation: goright 0.5s linear forwards 3.5s;
-  border-left: 87.5px solid transparent;
-  border-right: 87.5px solid transparent;
-  border-bottom: 150px solid #3B8070;
-}
-
-.Triangle--three {
-  top: 60px;
-  left: 35px;
-  animation: goright 0.5s linear forwards 3.5s;
-  border-left: 70px solid transparent;
-  border-right: 70px solid transparent;
-  border-bottom: 120px solid #35495E;
-}
-
-.Triangle--four {
-  top: 120px;
-  left: 70px;
-  animation: godown 0.5s linear forwards 3s;
-  border-left: 35px solid transparent;
-  border-right: 35px solid transparent;
-  border-bottom: 60px solid #fff;
-}
-
-@keyframes turn {
-  100% {
-    transform: rotateX(0deg);
+  .navbar-brand {
+    float: left;
+    padding: 0 15px;
+    img {      
+      position: relative;
+      top: -5px;
+      width: auto;
+    }
   }
-}
-
-@keyframes godown {
-  100% {
-    top: 180px;
+  .nav-shop {
+    li {
+      a {
+        border-bottom: none;
+        border: none;
+        border-radius: 5px;
+        color: #333;
+        font-family: "nexa bold", inherit;
+        font-size: 22px;
+        font-weight: normal;
+        line-height: 45px;        
+        margin: 0 5px -2px;
+        padding: 0 10px 0 0px;        
+      }
+    }    
   }
-}
-
-@keyframes goright {
-  100% {
-    left: 70px;
+  .input-group-addon {
+    background-color: #ac0916;
+    border: 1px #8c0d04 solid;       
+    border-left: none;
+    border-radius: 0px 5px 5px 0px;
+    color: white;
   }
-}
+
 </style>

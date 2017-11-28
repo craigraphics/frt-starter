@@ -1,427 +1,93 @@
 <template>
-  <header class="header">
-   <div class="navbar-static-top navbar-inverse">
+  <header>
+    <nav class="navbar navbar-static-top navbar-inverse">
       <div class="container">
-         <div class="row">
-            <div class="col-md-push-6 col-md-6 col-sm-push-5 col-sm-7 ng-scope">
-               <ul class="nav-dd pull-right">
-                  <li class="signin hidden-xs ng-scope" >
-                     <a href="#" data-toggle="no-dropdown" id="signinDropdown" class="dropdown" n>
-                     <i class="fa fa-lg fa-user text-success"></i>
-                     Sign In
-                     </a>
-                     <div class="dropdown-menu ng-scope" aria-labelledby="signinDropdown">
-                        <div id="dlgLogin" class="col-md-12">
-                           <div>
-                              <div class="ng-isolate-scope frontier-id">
-                                 <div class="fid-view">
-                                    <div class="fid-loginModal">
-                                       <div class="login-modal">
-                                          <div class="alert alert-danger ng-hide">Our online billing system is temporarily unavailable. We are sorry for any inconvenience. Please try again later, or contact us using Chat or call us at 1.800.921.8101 (Residential) or 1.800.921.8102 (Business) for immediate assistance.</div>
-                                          <table class="login-modal-table">
-                                             <tbody>
-                                                <tr>
-                                                   <td>
-                                                      <h2 data-i18n="fid.login-button">Sign In</h2>
-                                                      <div class="form-group login-field">
-                                                         <div> <label class="control-label" for="fid-login-inline-username" data-i18n="fid.login-inline-id-username">Frontier ID / Username</label> <a class="pull-right" tabindex="-1" ng-click="onForgotId()" data-i18n="fid.forgot-id">Forgot?</a> </div>
-                                                         <input type="text" class="form-control ng-isolate-scope ng-pristine ng-valid" ng-class="{'error':login.loginInvalid}" spellcheck="" autocapitalize="off" autocorrect="off" autocomplete="off" autofocus="" ng-model="login.loginId" placeholder="mary@frontier.com or marysmith" id="fid-login-inline-username" fid-on-enter="onLogin()" ng-change="onUserPassChanged()">
-                                                      </div>
-                                                      <div class="form-group login-field">
-                                                         <div> <label class="control-label" for="fid-login-inline-password" data-i18n="fid.password">Password</label> <a class="pull-right" tabindex="-1" ng-click="onForgotPassword()" data-i18n="fid.forgot-password">Forgot?</a> </div>
-                                                         <input type="password" class="form-control ng-isolate-scope ng-pristine ng-valid" ng-class="{'error':login.passwordInvalid}" spellcheck="" autocapitalize="off" autocorrect="off" autocomplete="off" placeholder="" ng-model="login.password" id="fid-login-inline-password" fid-on-enter="onLogin()" ng-change="onUserPassChanged()">
-                                                      </div>
-                                                      <p class="error-message ng-hide" ng-show="login.loginInvalid || login.passwordInvalid" i18n="fid.login-invalid-credentials">Incorrect Frontier ID or Password. Please try again.</p>
-                                                      <p class="error-message ng-hide" ng-show="login.loginError" i18n="fid.login-error">There was a problem signing in. Please try again later.</p>
-                                                      <div class="form-group"> <label class="control-label"> <input type="checkbox" ng-model="login.rememberId" class="ng-pristine ng-valid"> <span data-i18n="fid.login-remember-me">Remember my ID</span> </label> </div>
-                                                      <div class="form-group"> <button ng-disabled="!login.loginId || !login.password || loading" type="button" ng-click="onLogin()" class="btn btn-primary btn-block" disabled="disabled"> <i class="fa fa-spinner fa-lg fa-spin ng-hide" ng-show="loading"></i> <span i18n="fid.login-button" ng-class="{'loading-padding':loading}">Sign In</span> </button> </div>
-                                                   </td>
-                                                   <td class="login-modal-table-separator">
-                                                      <div class="lmts-circle">
-                                                         <div class="lmts-or" i18n="fid.littleor">or</div>
-                                                      </div>
-                                                   </td>
-                                                   <td>
-                                                      <h2 data-i18n="fid.login-register">Register</h2>
-                                                      <p><span data-i18n="fid.login-new-to-frontier-com">New to Frontier.com?</span><br><span data-i18n="fid.login-get-started">Get started now, it's fast and easy!</span></p>
-                                                      <button class="btn btn-block btn-default" ng-click="onCreate()" data-i18n="fid.login-create-id">Create a Frontier ID</button>
-                                                   </td>
-                                                </tr>
-                                             </tbody>
-                                          </table>
-                                       </div>
-                                    </div>
-                                 </div>
-                              </div>
-                           </div>
-                        </div>
-                     </div>
-                     <!-- SIGN IN MODULE ENDS -->
-                  </li>
-                  <li class="signin ng-hide" ng-show="sessionState.frontierId">
-                     <div class="hidden-xs hidden">
-                        <i class="fa fa-lg fa-user text-success visible-md visible-sm"></i>
-                        <a id="aSignOut" href="https://frontier.com/logout"> Sign Out</a>
-                     </div>
-                  </li>
-                  <li class="signin ng-hide hidden" ng-show="sessionState.frontierId">
-                     <div>
-                        <i class="fa fa-lg fa-user text-success"></i>
-                        <a id="aWelcome" href="https://frontier.com/account#/profile" class="ng-binding"> Welcome, </a><span>&nbsp;|&nbsp;</span>
-                     </div>
-                  </li>
-                  <li class="lang-selector visible-xs">
-                     <a href="" data-toggle="dropdown" id="languageDropdown" class="dropdown">
-                     <i class="fa fa-globe"></i>
-                     <span class="hidden-xs">English<b class="caret"></b></span>
-                     </a>
-                     <div class="dropdown-menu" aria-labelledby="languageDropdown">
-                        <a onclick="onLanguageToggled('en','https' ,'frontier.com', '/');" href="javascript:void(0)">English </a>
-                        <a onclick="onLanguageToggled('es','https' ,'frontier.com', '/');" href="javascript:void(0)">Spanish </a>
-                     </div>
-                  </li>
-                  <li class="lang-selector hidden-xs ">
-                     <a  href="http://videos.frontier.com/es"><i class="fa fa-globe"></i>Español</a>
-                  </li>
-               </ul>
-               <!-- MOBILE MENU STARTS -->
-               <div class="mobile-menu visible-xs">
-                  <div class="navbar-header">
-                     <button type="button" data-toggle="collapse" data-target="#nav-level1" class="navbar-toggle">
-                     <span class="sr-only">Toggle navigation</span>
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                     <span class="icon-bar"></span>
-                     </button>
-                     <div class="navbar-brand visible-xs">
-                        <a href="https://frontier.com/">
-                        <img class="logo-mobile" src="https://frontier.com/~/~/media/HelpCenter/Images/customer-types-images/2016_frontier-white.ashx" alt="Frontier Communications" height="34">
-                        </a>
-                     </div>
-                  </div>
-               </div>
-               <!-- MOBILE MENU ENDS -->
-            </div>
-            <div class="col-md-pull-6 col-sm-5 col-sm-pull-7 col-md-6 nopadmobile">
-               <div id="nav-level1" data-parent="navbar-toggle" class="collapse navbar-collapse ng-scope" ng-controller="ProductPageController">
-                  <ul id="mob-menu" class="nav nav-tabs">
-                     <li class="active">
-                        <a href="/" class="hidden-xs">Residential</a>
-                        <a href="#1" data-toggle="collapse" data-parent="#mob-menu" class="visible-xs">Residential</a>
-                        <ul class="collapse collapsed hidden-lg hidden-md hidden-sm" id="1">
-                           <li>
-                              <a href="#11" data-toggle="collapse">Shop</a>
-                              <ul class="collapse collapsed" id="11">
-                                 <li>
-                                    <a href="https://frontier.com/shop/bundles?geolocation=1" ng-click="validateProductLink($event, '/shop/bundles')">Bundles</a>
-                                 </li>
-                                 <li>
-                                    <a href="https://frontier.com/shop/internet?geolocation=1" ng-click="validateProductLink($event, '/shop/internet')">Internet</a>
-                                 </li>
-                                 <li>
-                                    <a href="https://frontier.com/shop/phone?geolocation=1" ng-click="validateProductLink($event, '/shop/phone')">Phone</a>
-                                 </li>
-                                 <li>
-                                    <a href="https://frontier.com/shop/tv?geolocation=1" ng-click="validateProductLink($event, '/shop/tv')">Video/TV</a>
-                                 </li>
-                                 <li>
-                                    <a href="https://frontier.com/shop/frontier-secure">Frontier Secure</a>
-                                 </li>
-                                 <li>
-                                    <a href="https://frontier.com/corporate/movers">Moving</a>
-                                 </li>
-                              </ul>
-                           </li>
-                           <li>
-                              <a href="#12" data-toggle="collapse">My Account</a>
-                              <ul class="collapse collapsed" id="12">
-                                 <li>
-                                    <a href="https://frontier.com/account#/summary">Account Summary</a>
-                                 </li>
-                                 <li>
-                                    <a href="https://frontier.com/account#/payments/onetime ">My Payments</a>
-                                 </li>
-                                 <li>
-                                    <a href="https://frontier.com/account#/statements/current">My Bills</a>
-                                 </li>
-                                 <li>
-                                    <a href="https://frontier.com/account#/profile">My Profile</a>
-                                 </li>
-                                 <li>
-                                    <a href="https://frontier.com/myfrontier-mobile-app ">MyFrontier Mobile App</a>
-                                 </li>
-                              </ul>
-                           </li>
-                           <li>
-                              <a href="#13" data-toggle="collapse">Support</a>
-                              <ul class="collapse collapsed" id="13">
-                                 <li>
-                                    <a href="https://frontier.com/helpcenter">Help Center</a>
-                                 </li>
-                                 <li><a href="http://videos.frontier.com/">Video Gallery</a></li>
-                                 <li>
-                                    <a href="https://frontier.com/helpcenter/categories/support-wizard">Support Wizard</a>
-                                 </li>
-                                 <li>
-                                    <a href="https://frontier.com/helpcenter/categories/ticket-status">Trouble Ticket Status</a>
-                                 </li>
-                                 <li>
-                                    <a href="https://frontier.com/helpcenter/categories/order-status">Order Status</a>
-                                 </li>
-                                 <li>
-                                    <a href="https://frontier.com/contact-us">Contact Us</a>
-                                 </li>
-                              </ul>
-                           </li>
-                        </ul>
-                     </li>
-                     <li class="">
-                        <a href="https://frontier.com/small-business" class="hidden-xs">Business</a>
-                        <a href="#2" data-toggle="collapse" data-parent="#mob-menu" class="visible-xs">Business</a>
-                        <ul class="collapse collapsed hidden-lg hidden-md hidden-sm" id="2">
-                           <li>
-                              <a href="http://business.frontier.com">Home</a>
-                           </li>
-                           <li>
-                              <a href="https://frontier.com/Contact-Us?tab=business">Contact Us</a>
-                           </li>
-                           <li>
-                              <a href="https://frontier.com/small-business/helpcenter">Support</a>
-                           </li>
-                        </ul>
-                     </li>
-                     <li class="">
-                        <a href="https://frontier.com/wholesale">Wholesale</a>
-                     </li>
-                     <li class="sign-in-mobile hidden-sm hidden-md hidden-lg ng-scope" ng-show="!sessionState.frontierId" ng-controller="LoginDropdownController">
-                        <a href="#" ng-click="login()">Sign In</a>
-                     </li>
-                     <li class="signin hidden-sm hidden-md hidden-lg ng-hide" ng-show="sessionState.frontierId">
-                        <a id="aSignOut" href="https://frontier.com/logout">Sign Out</a>
-                     </li>
-                  </ul>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-   <div class="container">
-      <div id="header-main">
-         <div class="row">
-            <div class="col-sm-3 hidden-xs">
-               <a class="navbar-brand" href="https://frontier.com/">
-               <img src="https://frontier.com/~/helpcenter/~/media/HelpCenter/Images/customer-types-images/2016_frontier-header-red.ashx" alt="Frontier">
-               </a>
-            </div>
-            <div class="col-sm-5 hidden-xs ng-scope" ng-controller="ProductPageController">
-               <ul class="nav nav-justified">
-                  <li class="dd">
-                     <a href="#" class="dd-toggle">Shop</a>
-                     <ul class="dropdown-menu">
-                        <li>
-                           <a href="https://frontier.com/shop/bundles?geolocation=1" ng-click="validateProductLink($event, '/shop/bundles')">Bundles</a>
-                        </li>
-                        <li>
-                           <a href="https://frontier.com/shop/internet?geolocation=1" ng-click="validateProductLink($event, '/shop/internet')">Internet</a>
-                        </li>
-                        <li>
-                           <a href="https://frontier.com/shop/phone?geolocation=1" ng-click="validateProductLink($event, '/shop/phone')">Phone</a>
-                        </li>
-                        <li>
-                           <a href="https://frontier.com/shop/tv?geolocation=1" ng-click="validateProductLink($event, '/shop/tv')">Video/TV</a>
-                        </li>
-                        <li>
-                           <a href-loggedin-ecp="https://business.frontier.com/secure" href-loggedin-resi="/shop/frontier-secure" href="https://frontier.com/shop/frontier-secure">Frontier Secure</a>
-                        </li>
-                        <li>
-                           <a href-loggedin-ecp="" href-loggedin-resi="/corporate/movers" href="https://frontier.com/corporate/movers">Moving</a>
-                        </li>
-                     </ul>
-                  </li>
-                  <li class="dd">
-                     <a href="#" class="dd-toggle">My Account</a>
-                     <ul class="dropdown-menu">
-                        <li>
-                           <a href-loggedin-ecp="/enterprise" href-loggedin-resi="/account#/summary" href="https://frontier.com/account#/summary">Account Summary</a>
-                        </li>
-                        <li>
-                           <a href-loggedin-ecp="/enterprise" href-loggedin-resi="/account#/payments/onetime " href="https://frontier.com/account#/payments/onetime ">My Payments</a>
-                        </li>
-                        <li>
-                           <a href-loggedin-ecp="/enterprise" href-loggedin-resi="/account#/statements/current" href="https://frontier.com/account#/statements/current">My Bills</a>
-                        </li>
-                        <li>
-                           <a href-loggedin-ecp="/enterprise/MyProfile" href-loggedin-resi="/account#/profile" href="https://frontier.com/account#/profile">My Profile</a>
-                        </li>
-                        <li>
-                           <a href-loggedin-ecp="/myfrontier-mobile-app " href-loggedin-resi="https://frontier.com/myfrontier-mobile-app " href="https://frontier.com/myfrontier-mobile-app ">MyFrontier Mobile App</a>
-                        </li>
-                     </ul>
-                  </li>
-                  <li class="dd">
-                     <a href="#" class="dd-toggle">Support</a>
-                     <ul class="dropdown-menu">
-                        <li>
-                           <a href-loggedin-ecp="/small-business/helpcenter" href-loggedin-resi="/helpcenter" href="https://frontier.com/helpcenter">Help Center</a>
-                        </li>
-                        <li><a href="http://videos.frontier.com/">Video Gallery</a></li>
-                        <li>
-                           <a href-loggedin-ecp="/small-business/helpcenter/categories/support-wizard" href-loggedin-resi="/helpcenter/categories/support-wizard" href="https://frontier.com/helpcenter/categories/support-wizard">Support Wizard</a>
-                        </li>
-                        <li>
-                           <a href-loggedin-ecp="/enterprise/FindTroubleTicket" href-loggedin-resi="/helpcenter/categories/ticket-status" href="https://frontier.com/helpcenter/categories/ticket-status">Trouble Ticket Status</a>
-                        </li>
-                        <li>
-                           <a href-loggedin-ecp="/enterprise/ViewOrders" href-loggedin-resi="/helpcenter/categories/order-status" href="https://frontier.com/helpcenter/categories/order-status">Order Status</a>
-                        </li>
-                        <li>
-                           <a href-loggedin-ecp="/Contact-Us?tab=business#/business" href-loggedin-resi="/contact-us" href="https://frontier.com/contact-us">Contact Us</a>
-                        </li>
-                     </ul>
-                  </li>
-               </ul>
-            </div>
-            <div class="col-sm-4" id="search">
-               <div id="___gcse_0">
-                  <div class="gsc-control-searchbox-only gsc-control-searchbox-only-en" dir="ltr">
-                     <form class="gsc-search-box gsc-search-box-tools" accept-charset="utf-8" onsubmit="return redirect()">
-                        <table cellspacing="0" cellpadding="0" class="gsc-search-box">
-                           <tbody>
-                              <tr>
-                                 <td class="gsc-input">
-                                    <div class="gsc-input-box " id="gsc-iw-id1">
-                                       <table cellspacing="0" cellpadding="0" id="gs_id50" class="gstl_50 " style="width: 100%; padding: 0px;">
-                                          <tbody>
-                                             <tr>
-                                                <td id="gs_tti50" class="gsib_a">
-                                                   <input
-                                                      autocomplete="off"
-                                                      type="text" size="10" class="gsc-input" name="search" title="Search Frontier..." id="gsc-i-id1" x-webkit-speech="" x-webkit-grammar="builtin:search" lang="en" dir="ltr" spellcheck="false" style="width: 100%; padding: 0px; border: none; margin: 0px; height: auto; outline: none;" placeholder="Search Frontier...">
-                                                </td>
-                                                <td class="gsib_b">
-                                                   <div class="gsst_b" id="gs_st50" dir="ltr">
-                                                      <a class="gsst_a" href="javascript:void(0)" style="display: none;">
-                                                      <span class="gscb_a" id="gs_cb50">×</span>
-                                                      </a>
-                                                   </div>
-                                                </td>
-                                             </tr>
-                                          </tbody>
-                                       </table>
-                                    </div>
-                                    <input type="hidden" name="bgresponse" id="bgresponse">
-                                 </td>
-                                 <td class="gsc-search-button">
-                                    <input
-                                       type="image"
-                                       src="https://www.google.com/uds/css/v2/search_box_icon.png"
-                                       class="gsc-search-button gsc-search-button-v2"
-                                       title="search">
-                                 </td>
-                                 <td class="gsc-clear-button">
-                                    <div class="gsc-clear-button" title="clear results">&nbsp;</div>
-                                 </td>
-                              </tr>
-                           </tbody>
-                        </table>
-                        <table cellspacing="0" cellpadding="0" class="gsc-branding">
-                           <tbody>
-                              <tr style="display: none;">
-                                 <td class="gsc-branding-user-defined"></td>
-                                 <td class="gsc-branding-text">
-                                    <div class="gsc-branding-text">powered by</div>
-                                 </td>
-                                 <td class="gsc-branding-img"><img src="https://www.google.com/uds/css/small-logo.png" class="gsc-branding-img"></td>
-                              </tr>
-                           </tbody>
-                        </table>
-                     </form>
-                  </div>
-               </div>
-            </div>
-         </div>
-      </div>
-   </div>
-</header>
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#nbFrontier" aria-expanded="false">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
 
+        <div class="collapse navbar-collapse" id="nbFrontier">
+          <ul class="nav navbar-nav nav-left">
+            <li class="active"><a href="#">Residential <span class="sr-only">(current)</span></a></li>
+            <li><a href="#">Business</a></li> 
+            <li><a href="#">Wholesale</a></li>             
+          </ul>
+          
+          <ul class="nav navbar-nav navbar-right"> 
+            <li class="location">
+              <a href="#"><i class="fa fa-map-marker green fa-lg"></i> Norwalk CT (change) <b class="caret"></b></a>                        
+            </li>          
+            <li class="lang-selector">
+              <a href="#"><i class="fa fa-globe fa-lg"></i> Español</a>
+            </li>            
+            <li class="signin hidden-xs">
+              <a href="#"><i class="fa fa-lg fa-user"></i> Sign In <b class="caret"></b></a>                        
+            </li>
+          </ul>            
+        </div><!-- /.navbar-collapse -->
+      </div><!-- /.container-fluid -->
+    </nav>
+    <logo></logo>
+  </header>     
 </template>
 
+<script>
+  import Logo from '~/components/Logo.vue'
 
-<style>
-input.gsc-input, .gsc-input-box, .gsc-input-box-hover, .gsc-input-box-focus {
-    height: 35px;
-    border: 1px #CCC solid;
-    border-right: none;
-    border-color: #CCC;
-    font-size: 18px;
-    font-weight: normal;
-}
-
-.container input.gsc-input, .container .gsc-input-box, .container .gsc-input-box-hover, .container .gsc-input-box-focus {
-    border: 1px #CCC solid;
-    font-size: 18px;
-    font-weight: normal;
-}
-
-.container input.gsc-search-button, .container input.gsc-search-button:hover, .container input.gsc-search-button:focus {
-    background-color: #ac0916;
-    height: 36px;
-    min-width: 40px;
-    padding: 10px 12px;
-    margin-left: 0px;
-    margin-top: 6px;
-
-    background-repeat: repeat-x;
-    border-color: #8c0d04;
-    border-style: solid;
-    border-left: none;
-    -moz-border-radius: 0px;
-    -webkit-border-radius: 0px;
-}
-
-.gsc-search-box-tools .gsc-search-box .gsc-input {
-    padding-right: 0px;
-}
-
-.gsc-search-box .gsc-input > input:hover, .gsc-input-box-hover {
-    border: 1px solid #CCC;
-    border-top-color: #CCC;
-    -moz-box-shadow: inset 0 0px 0px rgba(0,0,0,.0);
-    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,0);
-    box-shadow: inset 0 0px 0px rgba(0,0,0,0);
-    outline: none;
-}
-
-.gsc-search-box .gsc-input > input:focus, .gsc-input-box-focus {
-    border: 1px solid #CCC;
-    -moz-box-shadow: inset 0 0px 0px rgba(0,0,0,.0);
-    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,0);
-    box-shadow: inset 0 0px 0px rgba(0,0,0,0);
-    outline: none;
-}
-
-.cse input.gsc-search-button:focus,
-input.gsc-search-button:focus {
-    box-shadow: inset 0 0px 0px rgba(0,0,0,0);
-    -webkit-box-shadow: inset 0 0px 0px rgba(0,0,0,0);
-    box-shadow: inset 0 0px 0px rgba(0,0,0,0);
-}
-
-form.gsc-search-box {
-    font-size: 18px;
-    font-weight: normal;
-}
-
-#search {
-        margin: 20px auto 20px;
-        height: 35px;
+  export default {
+    components: {
+      Logo
     }
+  }
+</script>
 
-@media only screen and (max-width: 768px) {
-    #search {
-        margin: 24px 15px 20px;
-        height: 35px;
+<style lang="scss" scoped>
+  $white: #FFF;  
+  $gray: #666;
+  
+  .navbar {
+    min-height:32px !important;
+    border: none;
+  } 
+  
+  .navbar-inverse {    
+    li {
+      a {
+        color: $white;
+        font-size: 11px; 
+        line-height: 1.42857;     
+        margin-right: 2px;         
+        padding: 10px 10px 7px;     
+      }
     }
-}
-    .bc-video-browser .bc-video-grid-items .bc-video-grid-item .bc-video-thumbnail img { max-height:160px}
+    
+    .nav-left {
+      li {
+        a {
+          background-color: #666;          
+          color: $white;
+          font-size: 11px; 
+          line-height: 1.42857;
+          margin-right: 2px;
+          padding: 12px 25px 7px;
+        }
+        
+        &.active {
+          a {
+            background-color: $white;            
+            color: $gray;
+          }
+        }
+      }
+    }    
+  }  
+  
+  
 </style>
+  
+
