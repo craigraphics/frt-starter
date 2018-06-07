@@ -8,6 +8,8 @@ var extractScssPlugin = new ExtractTextPlugin({
     filename: 'main.css'
 });
 
+const fileAsset = `name=assets/[name].[hash].[ext]`;
+
 var extractCssPlugin = new ExtractTextPlugin({
     filename: 'vendor.css'
 });
@@ -51,7 +53,11 @@ module.exports = {
                     publicPath: 'img/'
                 }
             }]
-        }]
+        },
+        {
+                     test: /\.svg(\?v=\d+\.\d+\.\d+)?$/,
+                     use: `url-loader?limit=10000&mimetype=image/svg+xml&${fileAsset}`
+                 }]
     },
     plugins: [
         extractCssPlugin,
