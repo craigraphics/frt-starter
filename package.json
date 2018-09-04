@@ -25,7 +25,7 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack-dev-server",
+    "build": "start http://localhost:8080/ & webpack-dev-server",
     "build:prod": "webpack -p"
   }
 }
