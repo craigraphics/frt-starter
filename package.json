@@ -1,15 +1,15 @@
 {
   "name": "frontier-template",
-  "description": "",
+  "description": "A starter kit for landing pages.",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "",
+  "repository": "https://github.com/ftr-projects/frt-starter.git",
   "author": "William Craig",
   "license": "MIT",
   "devDependencies": {
     "babel-core": "^6.24.0",
-    "babel-loader": "^6.4.1",
-    "babel-preset-es2015": "^6.24.0",
+    "babel-loader": "^7.1.2",
+    "babel-preset-env": "^1.7.0",
     "clean-webpack-plugin": "^0.1.16",
     "copy-webpack-plugin": "^4.2.3",
     "css-loader": "^0.27.3",
@@ -27,5 +27,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack-dev-server --open",
     "build:prod": "webpack -p"
+  },
+  "dependencies": {
+    "postcss-loader": "^3.0.0"
   }
 }
