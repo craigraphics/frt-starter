@@ -43,14 +43,14 @@ module.exports = {
             {
               loader: 'css-loader',
               options: { sourceMap: true }
-            }, {
+            }, /*{
               loader: 'postcss-loader',
               options: {
                 plugins: () => [require('autoprefixer')({
                   'browsers': ['> 1%', 'last 2 versions']
                 })],
               }
-            }, {
+            },*/ {
               loader: 'sass-loader',
               options: { sourceMap: true }
 

@@ -8,7 +8,7 @@ $(document).ready(function() {
   slider.slick({
     dots: true,
     infinite: false,
-    autoplay: true,
+    autoplay: false,
     speed: 800,
     autoplaySpeed: 5000,
     arrows: false,
