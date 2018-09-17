@@ -5,7 +5,7 @@ var CleanWebpackPlugin = require('clean-webpack-plugin');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
 var extractScssPlugin = new ExtractTextPlugin({
-    filename: 'main.css'
+    filename: 'css/main.css'
 });
 
 const fileAsset = `name=assets/[name].[hash].[ext]`;
@@ -19,7 +19,7 @@ module.exports = {
   entry: './src/js/app.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js',
+    filename: 'js/bundle.js',
     // publicPath: '/dist'
   },
   module: {
